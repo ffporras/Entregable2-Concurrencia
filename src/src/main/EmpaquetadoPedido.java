@@ -5,7 +5,7 @@ import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class EmpaquetadoPedido {
-    private final ForkJoinPool pool;
+    public final ForkJoinPool pool;
     private final AtomicInteger hilosActivos = new AtomicInteger(0); // Contador de hilos
 
     public EmpaquetadoPedido(int numHilos) {

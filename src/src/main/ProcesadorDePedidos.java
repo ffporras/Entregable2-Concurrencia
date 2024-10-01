@@ -7,12 +7,12 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProcesadorDePedidos {
-    private final PriorityBlockingQueue<Pedido> colaPedidos = new PriorityBlockingQueue<>(10,
+    public final PriorityBlockingQueue<Pedido> colaPedidos = new PriorityBlockingQueue<>(10,
             (p1, p2) -> Boolean.compare(p2.isPrioridad(), p1.isPrioridad())); // Prioriza pedidos urgentes
 
-    private final ProcesamientoPago verificadorDePago = new ProcesamientoPago(3); // 3 hilos para verificación
-    private final EmpaquetadoPedido empaquetador = new EmpaquetadoPedido(4); // 4 hilos para empaquetado
-    private final ProcesamientoEnvios enviador = new ProcesamientoEnvios(2); // 2 hilos para envío
+    public final ProcesamientoPago verificadorDePago = new ProcesamientoPago(3); // 3 hilos para verificación
+    public final EmpaquetadoPedido empaquetador = new EmpaquetadoPedido(4); // 4 hilos para empaquetado
+    public final ProcesamientoEnvios enviador = new ProcesamientoEnvios(2); // 2 hilos para envío
 
     private final AtomicInteger pedidosEnProceso = new AtomicInteger(0); // Contador de pedidos en proceso
 
@@ -65,7 +65,7 @@ public class ProcesadorDePedidos {
         shutdown();
     }
 
-    private CompletableFuture<Void> procesarPedido(Pedido pedido) {
+    public CompletableFuture<Void> procesarPedido(Pedido pedido) {
         // Temporizadores para cada etapa
         long inicioVerificacion = System.nanoTime();
 

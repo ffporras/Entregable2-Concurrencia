@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProcesamientoPago {
-    private final ExecutorService executor;
+    public final ExecutorService executor;
     private final AtomicInteger hilosActivos = new AtomicInteger(0); // Contador de hilos
 
     public ProcesamientoPago(int numHilos) {
